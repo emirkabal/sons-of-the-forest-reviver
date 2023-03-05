@@ -2,7 +2,7 @@
   "name": "sons-of-the-forest-reviver",
   "description": "Sons of the Forest NPC Reviver (Kelvin + Virginia) for all save files",
   "author": "Emir Kabal <me@emirkabal.com>",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "main": "main.js",
   "license": "MIT",
   "scripts": {

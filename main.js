@@ -80,7 +80,8 @@ const collectSavesData = () => {
       });
       saveFiles.forEach((saveFile) => {
         if (!importantFiles.includes(saveFile)) return;
-        console.log(name + "->" + saveFile);
+        console.log(name + "->" + saveFolder + "->" + saveFile);
+
         const saveData = fs.readFileSync(
           savePath + name + "\\" + saveFolder + "\\" + saveFile,
           "utf8"
@@ -126,19 +127,61 @@ const collectSavesData = () => {
           robbyKillStats.PlayerKilled = 0;
 
           const virginia = data.Actors.find((actor) => actor.TypeId === 10);
-          virginia.Position = position;
-          virginia.State = 2;
-          virginia.Stats.Health = 120;
-          virginia.Stats.Anger = 0;
-          virginia.Stats.Fear = 0;
-          virginia.Stats.Fullness = 0;
-          virginia.Stats.Hydration = 0;
-          virginia.Stats.Energy = 100;
+          if (virginia) {
+            virginia.Position = position;
+            virginia.State = 2;
+            virginia.Stats.Health = 120;
+            virginia.Stats.Anger = 0;
+            virginia.Stats.Fear = 0;
+            virginia.Stats.Fullness = 0;
+            virginia.Stats.Hydration = 0;
+            virginia.Stats.Energy = 100;
+          } else {
+            let uniqueId;
+            do {
+              uniqueId = Math.floor(Math.random() * 10000) + 10000;
+            } while (
+              data.Actors.find((actor) => actor.UniqueId === uniqueId) != null
+            );
+            data.Actors.push({
+              UniqueId: uniqueId,
+              TypeId: 10,
+              FamilyId: 0,
+              Position: position,
+              Rotation: {
+                x: 0,
+                y: 0.9795819,
+                z: 0,
+                w: 0.201045766,
+              },
+              SpawnerId: -1797797444,
+              ActorSeed: -66628101,
+              VariationId: 0,
+              State: 2,
+              GraphMask: 1,
+              EquippedItems: null,
+              OutfitId: -1,
+              NextGiftTime: 0,
+              LastVisitTime: -100,
+              Stats: {
+                Health: 120,
+                Anger: 0,
+                Fear: 0,
+                Fullness: 0,
+                Hydration: 0,
+                Energy: 100,
+                Affection: 0,
+              },
+              StateFlags: 0,
+            });
+          }
 
           const virginiaKillStats = data.KillStatsList.find(
             (killStats) => killStats.TypeId === 10
           );
-          virginiaKillStats.PlayerKilled = 0;
+          if (virginiaKillStats) {
+            virginiaKillStats.PlayerKilled = 0;
+          }
 
           defaultData.Data.VailWorldSim = getWritableJSON(data);
           fs.writeFileSync(
