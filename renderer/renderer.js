@@ -23,8 +23,5 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log("Received forest-data from main");
     document.getElementById("btn").removeAttribute("disabled");
     document.getElementById("notify").style.display = "block";
-    setTimeout(() => {
-      document.getElementById("notify").style.display = "none";
-    }, 3000);
   });
 });

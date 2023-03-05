@@ -39,6 +39,7 @@ app.on("window-all-closed", function () {
 });
 
 const collectSavesData = () => {
+  if (!fs.existsSync(forestPath + "Saves")) return;
   const profiles = fs.readdirSync(forestPath + "Saves");
   console.log(profiles);
   if (profiles.length == 0) {
@@ -51,6 +52,7 @@ const collectSavesData = () => {
   const importantFiles = ["GameStateSaveData.json", "SaveData.json"];
 
   function fixFiles(name = "Singleplayer") {
+    if (!fs.existsSync(savePath + name)) return;
     const saveFolders = fs.readdirSync(savePath + name);
 
     saveFolders.forEach((saveFolder) => {
@@ -107,8 +109,12 @@ const collectSavesData = () => {
     });
   }
 
-  fixFiles("Singleplayer");
-  fixFiles("Multiplayer");
+  try {
+    fixFiles("Singleplayer");
+    fixFiles("Multiplayer");
+  } catch (error) {
+    console.log(error);
+  }
 
   console.log("Done");
 };
@@ -122,6 +128,10 @@ ipcMain.on("getLocation", (event, args) => {
 });
 
 ipcMain.on("forest-data", (event, args) => {
-  collectSavesData();
+  try {
+    collectSavesData();
+  } catch (error) {
+    console.log(error);
+  }
   event.reply("forest-data-fix");
 });
