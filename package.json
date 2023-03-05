@@ -1,0 +1,37 @@
+{
+  "name": "sons-of-the-forest-reviver",
+  "description": "Sons of the Forest NPC Reviver (Kelvin + Virginia) for all save files",
+  "author": "Emir Kabal <me@emirkabal.com>",
+  "version": "1.0.0",
+  "main": "main.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder"
+  },
+  "devDependencies": {
+    "electron": "^23.1.2",
+    "electron-builder": "^23.6.0"
+  },
+  "build": {
+    "appId": "com.emirkabal.sotfreviver",
+    "productName": "Sons of the Forest Reviver",
+    "files": [
+      "main.js",
+      "preload.js",
+      "utils.js",
+      "renderer/renderer.js",
+      "renderer/index.html",
+      "renderer/css/style.css",
+      "package.json",
+      "node_modules/**/*"
+    ],
+    "directories": {
+      "buildResources": "assets"
+    },
+    "win": {
+      "target": "portable",
+      "icon": "assets/icon.ico"
+    }
+  }
+}

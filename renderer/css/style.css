@@ -1,0 +1,97 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  background: #313338;
+  color: #fff;
+  font-family: "Roboto", sans-serif;
+  overflow: hidden;
+}
+
+.loading {
+  font-size: 1.2rem;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin: 0;
+  margin-bottom: 2px;
+}
+
+p {
+  font-size: 1.2rem;
+  font-weight: 400;
+  margin: 0;
+  margin-bottom: 4px;
+}
+
+p.important {
+  font-size: 0.8rem;
+  margin: 0;
+  margin-bottom: 12px;
+  color: rgb(246, 130, 130);
+}
+
+@keyframes notify {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+#notify {
+  display: none;
+  position: absolute;
+  color: #004b18;
+  background: #57f287;
+  padding: 8px 16px;
+  z-index: 999;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  bottom: 0;
+  right: 0;
+  margin: 18px;
+  animation: notify 1.2s ease-in-out;
+}
+
+#location {
+  color: #5865f2;
+  cursor: pointer;
+  user-select: none;
+}
+#location:hover {
+  text-decoration: underline;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+button {
+  padding: 24px 64px;
+  background: #5865f2;
+  border: 0;
+  font-weight: 800;
+  font-size: 16px;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #3c4bed;
+}
+
+button:disabled {
+  background: #b0b3c6;
+  cursor: not-allowed;
+}

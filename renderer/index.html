@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'; style-src 'unsafe-inline'; img-src 'self';"
+    />
+
+    <title>sons-of-the-forest-reviver</title>
+  </head>
+  <body>
+    <p class="loading">Loading...</p>
+    <div id="content" style="display: none">
+      <div class="container">
+        <h1>Sons of The Forest</h1>
+        <p>NPC Reviver (Kelvin + Virginia) for all save files</p>
+        <p class="important">
+          IMPORTANT: First backup your save data from
+          <span id="location"></span>
+        </p>
+        <button id="btn">Revive</button>
+        <!-- <button>Revive</button> -->
+      </div>
+      <p id="notify">
+        Done! You can close this window and go back to fight demons!
+      </p>
+    </div>
+
+    <script src="./renderer.js"></script>
+  </body>
+</html>
