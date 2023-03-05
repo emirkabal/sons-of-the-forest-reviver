@@ -3,6 +3,7 @@ Sons of the Forest NPC Reviver (Kelvin + Virginia) for all save files
 ## Features
 - Revive Kelvin (Robby)
 - Revive Virginia
+- Teleport all npcs to your current location
 - All saves (Singleplayer + Multiplayer)
 
 ## Preview
